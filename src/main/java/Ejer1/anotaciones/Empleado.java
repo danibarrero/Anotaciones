@@ -15,5 +15,4 @@ public @interface Empleado {
     int codigoTaller() default 0;
     String perfil() default "";
     String categoria() default "";
-
 }

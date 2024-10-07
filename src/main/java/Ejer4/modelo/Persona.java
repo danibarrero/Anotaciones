@@ -1,4 +1,4 @@
-package Ejer4.Modelo;
+package Ejer4.modelo;
 
 import lombok.*;
 

@@ -1,7 +1,7 @@
 package Ejer4;
 
 
-import Ejer4.Modelo.Persona;
+import Ejer4.modelo.Persona;
 
 public class Main {
     public static void main(String[] args) {
