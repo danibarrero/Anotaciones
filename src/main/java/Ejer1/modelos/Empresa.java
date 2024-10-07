@@ -40,13 +40,18 @@ import java.util.List;
 
 public class Empresa {
 
+    // Lista de empleados cargados en la clase Empresa
     List<Ejer1.modelos.Empleado> empleados;
 
+    // Carga los datos desde las anotaciones
     public static Empresa cargadorDeContexto() {
         Empresa empresa = new Empresa();
+
+        // Cargar anotaciones de tipo Empleado en la clase Empresa
         Empleado[] empleados = Empresa.class.getAnnotationsByType(Empleado.class);
         List<Ejer1.modelos.Empleado> empleadoList = new ArrayList<>();
 
+        // Según el empleado procesa la anotación
         for (Empleado empleado : empleados) {
             if (empleado.clase().equals("Directivo")) {
                 Directivo directivo = new Directivo();
@@ -59,6 +64,7 @@ public class Empresa {
                 directivo.setClase(empleado.clase());
                 directivo.setCodigoDespacho(empleado.codigoDespacho());
 
+                // Agregar el directivo a la lista de empleados
                 empleadoList.add(directivo);
             }
 
@@ -74,6 +80,7 @@ public class Empresa {
                 tecnico.setCodigoTaller(empleado.codigoTaller());
                 tecnico.setPerfil(empleado.perfil());
 
+                // Agregar el técnico a la lista de empleados
                 empleadoList.add(tecnico);
             }
 
@@ -89,10 +96,12 @@ public class Empresa {
                 oficial.setCodigoTaller(empleado.codigoTaller());
                 oficial.setCategoria(empleado.categoria());
 
+                // Agregar el oficial a la lista de empleados
                 empleadoList.add(oficial);
             }
         }
 
+        // Establecer lista de empleados en la instancia de Empresa
         empresa.setEmpleados(empleadoList);
         return empresa;
     }
@@ -110,6 +119,7 @@ public class Empresa {
         this.empleados = empleados;
     }
 
+    // Prueba de la carga de datos desde las anotaciones
     public static void main(String[] args) {
         Empresa empresa = Empresa.cargadorDeContexto();
         System.out.println(empresa);

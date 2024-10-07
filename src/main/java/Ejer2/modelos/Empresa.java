@@ -45,7 +45,9 @@ import java.util.List;
 )
 
 public class Empresa {
+        // Lista de empleados de la empresa
         private List<Ejer1.modelos.Empleado> empleadoList = new ArrayList<>();
+
         private String nombre;
 
         public List<Ejer1.modelos.Empleado> getEmpleadoList() {

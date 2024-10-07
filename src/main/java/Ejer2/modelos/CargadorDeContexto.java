@@ -10,18 +10,23 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CargadorDeContexto {
+
+    // Lista de anotaciones Directivo de la clase Empresa
     public static List<Directivo> listaDirectivos() {
         return Arrays.asList(Empresa.class.getAnnotationsByType(Directivo.class));
     }
 
+    // Lista de anotaciones Tecnico de la clase Empresa
     public static List<Tecnico> listaTecnicos() {
         return Arrays.asList(Empresa.class.getAnnotationsByType(Tecnico.class));
     }
 
+    // Lista de anotaciones Oficial de la clase Empresa
     public static List<Oficial> listaOficials() {
         return Arrays.asList(Empresa.class.getAnnotationsByType(Oficial.class));
     }
 
+    // Cargar la lista de empleados de tipo Directivo
     public static List<Ejer1.modelos.Directivo> cargarDirectivos() {
         List<Ejer1.modelos.Directivo> listaDirectivos = new ArrayList<>();
         for (Directivo directivo : listaDirectivos()) {
@@ -42,6 +47,7 @@ public class CargadorDeContexto {
         return listaDirectivos;
     }
 
+    // Cargar la lista de empleados de tipo Tecnico
     public static List<Ejer1.modelos.Tecnico> cargarTecnicos() {
         List<Ejer1.modelos.Tecnico> listaTecnicos = new ArrayList<>();
         for (Tecnico tecnico : listaTecnicos()) {
@@ -63,6 +69,7 @@ public class CargadorDeContexto {
         return listaTecnicos;
     }
 
+    // Cargar la lista de empleados de tipo Oficial
     public static List<Ejer1.modelos.Oficial> cargarOficial() {
         List<Ejer1.modelos.Oficial> listaOficials = new ArrayList<>();
         for (Oficial oficial : listaOficials()) {
@@ -84,6 +91,7 @@ public class CargadorDeContexto {
         return listaOficials;
     }
 
+    // Cargar una lista completa de empleados de todos los tipos
     public static List<Ejer1.modelos.Empleado> cargarEmpleado() {
         List<Ejer1.modelos.Empleado> listaEmpleados = new ArrayList<>();
         listaEmpleados.addAll(cargarDirectivos());
@@ -93,6 +101,7 @@ public class CargadorDeContexto {
         return listaEmpleados;
     }
 
+    // Prueba de la carga de empleados
     public static void main(String[] args) {
 //        System.out.println(cargarOficial());
 //        System.out.println(cargarDirectivos());
@@ -103,8 +112,10 @@ public class CargadorDeContexto {
         Empresa empresa = new Empresa();
         empresa.setNombre("MLG");
 
+        // Cargar la lista de empleados en la empresa
         empresa.setEmpleadoList(cc.cargarEmpleado());
 
+        // Imprimir la información de la empresa con su lista de empleados
         System.out.println(empresa);
     }
 }
